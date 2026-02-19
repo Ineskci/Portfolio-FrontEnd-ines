@@ -1,0 +1,31 @@
+/* ======================================================
+   IMPORT GLOBAL STYLES
+   base.css contains:
+   - reset
+   - typography
+   - global page styles
+   This file must always be loaded FIRST
+====================================================== */
+@import url("base.css");
+
+
+/* ======================================================
+   IMPORT COMPONENT STYLES
+   Each UI block has its own CSS file
+   This keeps the project clean and professional
+====================================================== */
+
+/* Header → logo, navigation, availability button */
+@import url("components/header.css");
+
+/* Hero section → big title, description, layout */
+@import url("components/hero.css");
+
+/* Buttons → shared styles for all buttons */
+@import url("components/buttons.css");
+
+/* Stickers → floating labels around the page */
+@import url("components/stickers.css");
+
+/* Animations → keyframes and motion effects */
+@import url("components/animations.css");

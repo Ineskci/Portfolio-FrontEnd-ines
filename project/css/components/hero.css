@@ -1,0 +1,147 @@
+/* ======================================================
+   HERO SECTION CONTAINER
+   Full-screen introduction area
+====================================================== */
+.hero {
+  min-height: 100vh;
+  /* Makes the section at least as tall as the viewport
+     → creates the big landing screen effect */
+
+  display: flex;
+  /* Activates Flexbox layout */
+
+  align-items: center;
+  /* Vertically centers the content */
+
+  justify-content: center;
+  /* Horizontally centers the content */
+
+  position: relative;
+  /* Allows absolute-positioned decorative elements inside */
+
+  overflow: hidden;
+  /* Hides floating elements if they move outside the section */
+
+  padding: 6rem 1rem;
+  /* Space inside the section */
+}
+
+
+/* ======================================================
+   CENTRAL CONTENT CONTAINER
+   Holds title, description, buttons
+====================================================== */
+.hero-content {
+  text-align: center;
+  /* Centers text horizontally */
+
+  max-width: 1100px;
+  /* Limits content width for readability */
+
+  position: relative;
+  /* Creates a positioning context for inner elements */
+
+  z-index: 2;
+  /* Ensures text stays above decorative elements */
+}
+
+
+/* ======================================================
+   ROLE LABEL (WEB DEVELOPER)
+====================================================== */
+.hero-role {
+  text-transform: uppercase;
+  /* Converts text to uppercase */
+
+  letter-spacing: 0.4em;
+  /* Adds spacing between letters for design effect */
+
+  font-size: 1rem;
+  /* Controls text size */
+
+  color: #666;
+  /* Secondary text color */
+
+  margin-bottom: 2rem;
+  /* Space below the label */
+}
+
+
+/* ======================================================
+   MAIN TITLE
+   Responsive size using clamp()
+====================================================== */
+.hero-title {
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: 1;
+  letter-spacing: -2px;
+  /* Responsive font sizing:
+     minimum → 3rem
+     preferred → 8% of viewport width
+     maximum → 8rem */
+
+  font-weight: 900;
+  /* Extra bold for strong visual impact */
+
+  line-height: 0.9;
+  /* Reduces vertical spacing between lines */
+
+  margin-bottom: 2rem;
+  /* Space below the title */
+}
+
+
+/* ======================================================
+   COLORED PART OF NAME
+   Allows positioning of the star
+====================================================== */
+.highlight {
+  color: #ea2e6d;
+  /* Accent color */
+
+  position: relative;
+  /* Required so the small star positions relative to this text */
+}
+
+
+/* ======================================================
+   SMALL DECORATIVE STAR
+   Positioned relative to highlighted name
+====================================================== */
+.star-small {
+  position: absolute;
+  /* Removes element from normal flow → manual positioning */
+
+  top: -50px;
+  /* Moves star upward */
+
+  right: -40px;
+  /* Moves star to the right */
+
+  font-size: 2rem;
+  /* Controls star size */
+
+  animation: wiggle 2s infinite;
+  /* Applies oscillation animation (defined in animations.css) */
+}
+
+
+/* ======================================================
+   DESCRIPTION TEXT
+====================================================== */
+.hero-description {
+  max-width: 550px;
+  /* Limits line width for readability */
+
+  margin: 0 auto 3rem auto;
+  /* Centers horizontally + adds bottom spacing */
+
+  color: #555;
+  /* Softer text color */
+
+  font-size: 1.3rem;
+  /* Slightly larger than default text */
+
+  line-height: 1.6;
+  /* Improves readability */
+}

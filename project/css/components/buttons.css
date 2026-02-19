@@ -1,0 +1,88 @@
+/* ======================================================
+   BUTTON CONTAINER
+   Holds the call-to-action buttons in the hero section
+====================================================== */
+.hero-buttons {
+  display: flex;
+  /* Places buttons in a horizontal row */
+
+  justify-content: center;
+  /* Centers buttons horizontally */
+
+  gap: 1rem;
+  /* Space between buttons */
+
+  flex-wrap: wrap;
+  /* Allows buttons to move to next line on small screens
+     → improves responsiveness */
+}
+
+
+/* ======================================================
+   BASE BUTTON STYLE
+   Shared design applied to all buttons
+====================================================== */
+.btn {
+  padding: 0.9rem 1.8rem;
+  /* Inner spacing → controls button size */
+
+  border: 3px solid black;
+  /* Strong brutalist border */
+
+  text-decoration: none;
+  /* Removes underline because buttons are links */
+
+  font-weight: bold;
+  /* Makes text visually strong */
+
+  box-shadow: 6px 6px 0 black;
+  /* Creates brutalist 3D effect */
+
+  transition: transform 0.2s ease;
+  /* Smooth movement animation on hover */
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 3px 3px 0 black;
+}
+
+
+
+/* ======================================================
+   PRIMARY BUTTON
+   Main action → strongest visual importance
+====================================================== */
+.btn-primary {
+  background: black;
+  /* Dark background for emphasis */
+
+  color: white;
+  /* High contrast text */
+}
+
+
+/* ======================================================
+   SECONDARY BUTTON
+   Alternative action → softer emphasis
+====================================================== */
+.btn-secondary {
+  background: #ffd91a;
+  /* Accent yellow color */
+
+  color: black;
+  /* Readable text color */
+}
+
+
+/* ======================================================
+   HOVER INTERACTION
+   Applied to all buttons
+====================================================== */
+.btn:hover {
+  transform: translateY(-4px);
+  /* Moves button upward → tactile interaction feedback */
+}

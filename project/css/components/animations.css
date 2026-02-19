@@ -1,0 +1,23 @@
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+
+/* flottement doux */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* rotation continue */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* oscillation petite étoile */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}

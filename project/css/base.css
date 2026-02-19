@@ -1,0 +1,63 @@
+/* ======================================================
+   GLOBAL RESET
+   Removes default browser spacing and inconsistencies
+   This ensures your layout behaves predictably
+====================================================== */
+* {
+  margin: 0;
+  /* Removes default outer spacing added by browsers */
+
+  padding: 0;
+  /* Removes default inner spacing */
+
+  box-sizing: border-box;
+  /* Makes width and height include padding + border
+     → easier and more intuitive layout sizing */
+}
+
+
+/* ======================================================
+   GLOBAL PAGE STYLES
+   Applied to the entire website
+====================================================== */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  /* Sets the main font for the whole site */
+
+  background: #fffdf4;
+  /* Soft background color from your design */
+
+  color: black;
+  /* Default text color */
+
+  line-height: 1.5;
+  /* Improves readability of text globally */
+
+  -webkit-font-smoothing: antialiased;
+  /* Makes text rendering smoother on many screens */
+}
+
+
+/* ======================================================
+   RESPONSIVE IMAGES
+   Prevents images from overflowing their container
+====================================================== */
+img {
+  max-width: 100%;
+  /* Image never becomes wider than its container */
+
+  height: auto;
+  /* Keeps the correct aspect ratio */
+
+  display: block;
+  /* Removes small gap under images caused by inline display */
+}
+
+
+/* ======================================================
+   OPTIONAL (but recommended)
+   Smooth scrolling when clicking anchor links
+====================================================== */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,162 @@
+/* ======================================================
+   HEADER CONTAINER
+   Holds logo, navigation and status button
+====================================================== */
+.header {
+  display: flex;
+  /* Activates Flexbox layout → children align in a row */
+
+  align-items: center;
+  /* Vertically centers all items inside the header */
+
+  justify-content: space-between;
+  /* Pushes elements apart:
+     logo → left
+     nav → center area
+     button → right */
+
+  padding: 1.2rem 2rem;
+  /* Inner spacing inside the header */
+
+  background: #fffdf4;
+  /* Same background as page for seamless design */
+
+  position: relative;
+  /* Allows stacking control with z-index */
+
+  z-index: 10;
+  /* Ensures header stays above decorative elements */
+}
+
+
+/* ======================================================
+   LOGO "IK."
+====================================================== */
+.logo {
+  font-weight: 900;
+  /* Very bold text for strong visual identity */
+
+  font-size: 1.5rem;
+  /* Controls logo size */
+
+  letter-spacing: -1px;
+  /* Slightly tightens letters for modern look */
+}
+
+/* Pink dot in the logo */
+.logo-dot {
+  color: #ea2e6d;
+}
+
+
+/* ======================================================
+   NAVIGATION MENU
+====================================================== */
+.nav {
+  display: flex;
+  /* Places navigation links in a horizontal row */
+
+  gap: 3rem;
+  /* Space between links */
+
+  font-weight: 700;
+  /* Makes menu text strong */
+
+  letter-spacing: 0.05em;
+  /* Slight spacing between letters */
+}
+
+
+/* Individual navigation links */
+.nav a {
+  text-decoration: none;
+  /* Removes default underline */
+
+  color: black;
+  /* Default text color */
+
+  transition: transform 0.2s ease, color 0.2s ease;
+  /* Smooth animation for hover effects */
+}
+
+/* Hover interaction */
+.nav a:hover {
+  transform: translateY(-2px);
+  /* Moves link slightly up → interactive feel */
+
+  color: #ea2e6d;
+  /* Accent color on hover */
+}
+
+
+/* ======================================================
+   STATUS BUTTON (DISPO)
+   Special button style for availability
+====================================================== */
+.btn-status {
+  background: #ea2e6d;
+  /* Accent color background */
+
+  color: white;
+  /* Text color for contrast */
+
+  padding: 0.7rem 1.4rem;
+  /* Inner spacing → controls button size */
+
+  border: 3px solid black;
+  /* Bold brutalist border */
+
+  font-weight: bold;
+  text-decoration: none;
+  /* Removes underline because it's a link */
+
+  box-shadow: 6px 6px 0 black;
+  /* Creates brutalist 3D shadow */
+
+  transition: transform 0.2s ease;
+  /* Smooth hover animation */
+}
+
+/* Hover effect */
+.btn-status:hover {
+  transform: translateY(-3px);
+  /* Moves button upward → interactive feedback */
+}
+
+
+/* ======================================================
+   DIVIDER LINE UNDER HEADER
+   Visual separation between header and hero section
+====================================================== */
+.header-line {
+  height: 3px;
+  /* Thickness of the line */
+
+  background: black;
+  /* Color of the line */
+
+  width: 100%;
+  /* Full width of the page */
+}
+
+/* ======================================
+   LANGUAGE TOGGLE BUTTON ANIMATION
+====================================== */
+#lang-toggle {
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* effet quand on clique */
+#lang-toggle:active {
+  transform: translateY(3px);
+  box-shadow: 2px 2px 0 black;
+}
+
+/* micro animation hover */
+#lang-toggle:hover {
+  transform: translateY(-2px);
+}

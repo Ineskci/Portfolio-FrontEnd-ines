@@ -1,0 +1,28 @@
+/* ======================================================
+   STICKERS FLOTTANTS
+====================================================== */
+.sticker {
+  position: absolute;
+  padding: 0.6rem 1.2rem;
+  border: 3px solid black;
+  font-weight: bold;
+  box-shadow: 5px 5px 0 black;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* positions */
+.sticker-front { top: 120px; left: 8%; background: #ffd91a; }
+.sticker-oop { top: 200px; right: 8%; background: #13daec; }
+.sticker-ruby { bottom: 120px; left: 12%; background: #ea2e6d; color: white; }
+.sticker-db { bottom: 180px; right: 12%; background: #ffd91a; }
+
+/* ======================================================
+   ÉTOILE DÉCORATIVE QUI TOURNE
+====================================================== */
+.star-deco {
+  position: absolute;
+  top: 120px;
+  right: 30%;
+  font-size: 3rem;
+  animation: spin 10s linear infinite;
+}

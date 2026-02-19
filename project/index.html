@@ -1,0 +1,129 @@
+<!-- Tells the browser this is an HTML5 document -->
+<!DOCTYPE html>
+<!-- Root of the page — language helps accessibility + SEO -->
+<html lang="fr">
+<head>
+  <!-- Character encoding (allows accents, symbols, emojis, etc.)) -->
+  <meta charset="UTF-8">
+
+   <!-- Title shown in the browser tab  -->
+  <title data-fr="Ines Kaci — Développeuse Web" data-en="Ines Kaci — Web Developer">
+    Ines Kaci — Développeuse Web
+  </title>
+
+  <!-- Import of the main design font from Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome library → used for icons (mail, arrows, etc.) -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Link to your main CSS file-->
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- HEADER = top bar with logo + navigation + status button-->
+  <!-- ===================================================== -->
+
+  <header class="header">
+
+  <!-- Website logo  -->
+  <!-- span allows styling the dot separately  -->
+  <div class="logo">
+    IK<span class="logo-dot">.</span>
+  </div>
+
+   <!-- Main navigation menu -->
+   <!-- nav is a semantic HTML element for menus  -->
+  <nav class="nav">
+
+    <!--  Links scroll to sections of the same page -->
+    <a href="#about" data-fr="À PROPOS" data-en="ABOUT">À PROPOS</a>
+    <a href="#projects" data-fr="PROJETS" data-en="PROJECTS">PROJETS</a>
+    <a href="#skills" data-fr="SKILLS" data-en="SKILLS">SKILLS</a>
+    <a href="#contact" data-fr="CONTACT" data-en="CONTACT">CONTACT</a>
+  </nav>
+
+  <!-- 🌍 Language toggle -->
+  <button id="lang-toggle" class="btn btn-secondary">
+   FR | EN
+  </button>
+
+   <!-- Availability button -->
+   <!-- btn = shared button style -->
+   <!-- btn-status = specific variation -->
+  <a href="#contact" class="btn btn-status"
+     data-fr="DISPO ✦"
+     data-en="AVAILABLE ✦">
+    DISPO ✦
+  </a>
+
+</header>
+
+<!-- Decorative horizontal line under the header -->
+<div class="header-line"></div>
+
+  <main>
+    <section class="hero">
+
+      <!--  Floating decorative labels ("STICKERS")  -->
+      <div class="sticker sticker-front">FRONT</div>
+      <div class="sticker sticker-oop">OOP</div>
+      <div class="sticker sticker-ruby">RUBY ON RAILS</div>
+      <div class="sticker sticker-db">DB</div>
+
+      <!-- Decorative STAR element -->
+      <div class="star-deco">✦</div>
+
+      <!-- Central content container -->
+      <div class="hero-content">
+
+        <p class="hero-role"
+           data-fr="Développeuse Web AI"
+           data-en="AI Web Developer">
+           Développeuse Web AI
+        </p>
+
+        <!-- Main title -->
+        <!-- span.highlight allows coloring only part of the text -->
+        <!-- star-small is positioned near the name -->
+        <h1 class="hero-title">
+          INES <span class="highlight">KACI <span class="star-small">★</span></span>
+        </h1>
+
+         <!-- Short introduction text -->
+        <p class="hero-description"
+           data-fr="Formée au Wagon, je construis des applications web avec Ruby on Rails, du code propre et un design audacieux."
+           data-en="Le Wagon graduate, I build web applications with Ruby on Rails, clean code, and bold design.">
+          Formée au Wagon, je construis des applications web avec Ruby on Rails, du code propre et un design audacieux.
+        </p>
+
+         <!-- Call-to-action buttons -->
+        <div class="hero-buttons">
+          <!-- Link to GitHub projects -->
+          <a href="https://github.com/Ineskci" class="btn btn-primary"
+             data-fr="Voir mes projets →"
+             data-en="See my projects →">
+            Voir mes projets →
+          </a>
+
+          <!-- Link to LinkedIn contact -->
+          <a href="https://www.linkedin.com/in/ineskaci-dev/" class="btn btn-secondary"
+             data-fr="Me contacter ✉"
+             data-en="Contact me ✉">
+            Me contacter ✉
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+  <script src="js/language.js"></script>
+
+</body>
+</html>
