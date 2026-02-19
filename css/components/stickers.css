@@ -11,10 +11,10 @@
 }
 
 /* positions */
-.sticker-front { top: 120px; left: 8%; background: #ffd91a; }
-.sticker-oop { top: 200px; right: 8%; background: #13daec; }
+.sticker-html_css { top: 120px; left: 8%; background: #ffd91a; }
+.sticker-java_script { top: 200px; right: 8%; background: #13daec; }
 .sticker-ruby { bottom: 120px; left: 12%; background: #ea2e6d; color: white; }
-.sticker-db { bottom: 180px; right: 12%; background: #ffd91a; }
+.sticker-db_sql { bottom: 180px; right: 12%; background: #ffd91a; }
 
 /* ======================================================
    ÉTOILE DÉCORATIVE QUI TOURNE
