@@ -1,0 +1,191 @@
+/* ======================================================
+   ABOUT SECTION
+   Two columns:
+   - Left: text and tags
+   - Right: black stats card
+====================================================== */
+.about {
+  background: #fffdf4;
+  /* Uses the same warm background as the rest of the light sections */
+}
+
+.about-layout {
+  display: grid;
+  /* Activates CSS Grid so we can create a clean 2-column layout */
+
+  grid-template-columns: 0.96fr 1.04fr;
+  /* Left column slightly narrower, right column slightly wider
+     to visually balance text height vs stats card weight */
+
+  gap: 2.5rem;
+  /* Horizontal and vertical spacing between grid items */
+
+  align-items: start;
+  /* Both columns start from the top edge */
+}
+
+.about-main {
+  max-width: 620px;
+  /* Limits line length so long text stays easy to read */
+}
+
+.about-intro {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  /* Responsive size:
+     - small on mobile
+     - larger on desktop
+     - stays inside safe range */
+
+  line-height: 1.45;
+  /* Gives enough breathing room between lines */
+
+  margin-bottom: 1.1rem;
+  /* Space between intro and next paragraph */
+}
+
+.about-tags {
+  margin-top: 1.6rem;
+  /* Pushes tags down from paragraph above */
+
+  list-style: none;
+  /* Removes default bullet points */
+
+  display: flex;
+  /* Places tags in one row */
+
+  flex-wrap: wrap;
+  /* Allows tags to wrap on next line when needed */
+
+  gap: 0.7rem;
+  /* Space between each tag */
+}
+
+.about-tags li {
+  border: 3px solid black;
+  /* Brutalist thick border */
+
+  box-shadow: 4px 4px 0 black;
+  /* Offset shadow to create pseudo-3D card effect */
+
+  font-weight: 700;
+  /* Strong text for labels */
+
+  padding: 0.5rem 1rem;
+  /* Inner spacing for readable tag shape */
+
+  background: #ffd91a;
+  /* Default yellow chip */
+}
+
+.about-tags .tag-cyan {
+  background: #13daec;
+  /* Alternate cyan chip for color rhythm */
+}
+
+
+/* Right-side stats panel */
+.stats-card {
+  background: #060606;
+  /* Near-black background for strong contrast */
+
+  color: #fff;
+  /* White text for readability on dark background */
+
+  border: 3px solid black;
+  /* Strong outer frame */
+
+  box-shadow: 7px 7px 0 black;
+  /* Brutalist offset shadow */
+
+  padding: 1.6rem 2rem;
+  /* Inside spacing around content rows */
+
+  min-height: 382px;
+  /* Gives card enough visual presence to balance left column */
+}
+
+.stats-file {
+  color: #8b8b8b;
+  /* Muted line color for pseudo code header */
+
+  margin-bottom: 1rem;
+  /* Space below // stats.js line */
+
+  font-family: monospace;
+  /* Technical code-like look */
+}
+
+.stats-row {
+  display: flex;
+  /* Puts label and value on same row */
+
+  justify-content: space-between;
+  /* Pushes label left and value right */
+
+  gap: 1rem;
+  /* Safety spacing between both texts */
+
+  border-bottom: 1px solid #282828;
+  /* Divider line between rows */
+
+  padding: 1rem 0;
+  /* Vertical rhythm for each row */
+
+  font-size: 1.1rem;
+  /* Comfortable size for labels */
+}
+
+.stats-row strong {
+  color: #ea2e6d;
+  /* Pink accent for key numbers */
+
+  font-size: 2.2rem;
+  /* Bigger text to emphasize metric values */
+
+  line-height: 1;
+  /* Prevents extra vertical spacing */
+}
+
+
+/* Tablet layout: stack content */
+@media (max-width: 980px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    /* One column only on smaller screens */
+
+    gap: 1.5rem;
+    /* Slightly smaller spacing for compact layout */
+  }
+
+  .about-main {
+    max-width: 100%;
+    /* Allow text block to use full width */
+  }
+
+  .stats-card {
+    max-width: 700px;
+    /* Keeps card from becoming too wide */
+  }
+}
+
+
+/* Mobile detail tweaks */
+@media (max-width: 640px) {
+  .about-tags li {
+    padding: 0.45rem 0.8rem;
+    /* Smaller tag size for narrow screens */
+
+    font-size: 0.9rem;
+    /* Keeps labels compact */
+  }
+
+  .stats-row {
+    font-size: 0.95rem;
+    /* Slightly smaller row labels */
+  }
+
+  .stats-row strong {
+    font-size: 1.7rem;
+    /* Slightly smaller numbers */
+  }
+}

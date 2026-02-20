@@ -1,0 +1,194 @@
+/* ======================================================
+   CONTACT SECTION
+   Centered heading + brutalist form + social links
+   → This section contains the contact form and social buttons
+====================================================== */
+.contact {
+  background: #fffdf4;
+  /* Soft background color matching the site theme */
+}
+
+/* Center the main contact title */
+.contact-title {
+  text-align: center;
+}
+
+/* Decorative pixel line under the title */
+.contact .pixel-line {
+  margin: 0 auto 1rem;
+  /* Centers the line and adds space below */
+
+  max-width: 860px;
+  /* Limits the line width */
+}
+
+/* Subtitle under the contact title */
+.contact-subtitle {
+  text-align: center;
+  /* Centers text */
+
+  margin-bottom: 2rem;
+  /* Space below subtitle */
+
+  color: #5a5a5a;
+  /* Soft gray text */
+
+  letter-spacing: 0.05em;
+  /* Adds spacing between letters */
+
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  /* Responsive font size */
+}
+
+/* Main form container */
+.contact-form {
+  border: 4px solid black;
+  /* Thick brutalist border */
+
+  box-shadow: 8px 8px 0 black;
+  /* Strong shadow effect */
+
+  padding: 2rem;
+  /* Inner spacing */
+}
+
+/* Layout for name + email fields */
+.form-row {
+  display: grid;
+  /* Uses grid layout */
+
+  grid-template-columns: 1fr 1fr;
+  /* Two equal columns */
+
+  gap: 1rem;
+  /* Space between fields */
+}
+
+/* Each form label block */
+.contact-form label {
+  display: block;
+  /* Makes label take full width */
+
+  margin-bottom: 1.2rem;
+  /* Space below each field */
+}
+
+/* Label text (ex: Name, Email, Message) */
+.contact-form label span {
+  display: inline-block;
+  /* Allows spacing control */
+
+  margin-bottom: 0.45rem;
+  /* Space above input */
+
+  font-weight: 700;
+  /* Bold label text */
+}
+
+/* Input fields and textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  /* Full width fields */
+
+  border: 3px solid black;
+  /* Strong border */
+
+  background: transparent;
+  /* No background fill */
+
+  padding: 1rem;
+  /* Inner spacing */
+
+  font-family: inherit;
+  /* Uses site font */
+
+  font-size: 1.15rem;
+  /* Comfortable text size */
+}
+
+/* Placeholder text style */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9ca2af;
+  /* Light gray helper text */
+}
+
+/* Submit button style */
+.btn-contact {
+  width: 100%;
+  /* Button takes full width */
+
+  background: #ea2e6d;
+  /* Pink accent color */
+
+  color: white;
+  /* White text */
+
+  margin-top: 0.2rem;
+  /* Small space above */
+}
+
+/* Container for social media links */
+.social-links {
+  margin: 2.4rem 0 0;
+  /* Space above links */
+
+  display: flex;
+  /* Align links in a row */
+
+  justify-content: center;
+  /* Center horizontally */
+
+  gap: 0.8rem;
+  /* Space between links */
+
+  flex-wrap: wrap;
+  /* Wrap to next line on small screens */
+}
+
+/* Individual social link button */
+.social-links a {
+  border: 3px solid black;
+  /* Bold border */
+
+  box-shadow: 4px 4px 0 black;
+  /* Shadow effect */
+
+  text-decoration: none;
+  /* Removes underline */
+
+  color: black;
+  /* Default text color */
+
+  padding: 0.8rem 1.5rem;
+  /* Button spacing */
+
+  font-weight: 700;
+  /* Bold text */
+
+  transition: transform 0.2s ease, color 0.2s ease;
+  /* Smooth hover animation */
+}
+
+/* Hover effect for social links */
+.social-links a:hover {
+  transform: translateY(-3px);
+  /* Moves button up slightly */
+
+  color: #ea2e6d;
+  /* Changes text color to accent */
+}
+
+/* Responsive design for tablets and phones */
+@media (max-width: 860px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    /* Stack inputs vertically */
+  }
+
+  .contact-form {
+    padding: 1.2rem;
+    /* Smaller spacing on small screens */
+  }
+}

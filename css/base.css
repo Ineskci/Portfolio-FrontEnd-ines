@@ -1,62 +1,61 @@
 /* ======================================================
    GLOBAL RESET
-   Removes default browser spacing and inconsistencies
-   This ensures your layout behaves predictably
+   We remove browser default spacing so layout is predictable
 ====================================================== */
 * {
   margin: 0;
-  /* Removes default outer spacing added by browsers */
+  /* Removes outside space browsers add by default */
 
   padding: 0;
-  /* Removes default inner spacing */
+  /* Removes inside space browsers add by default */
 
   box-sizing: border-box;
-  /* Makes width and height include padding + border
-     → easier and more intuitive layout sizing */
+  /* Makes width/height include padding and border
+     so sizing is easier to understand */
 }
 
 
 /* ======================================================
-   GLOBAL PAGE STYLES
-   Applied to the entire website
+   PAGE DEFAULTS
+   These styles apply to the entire website
 ====================================================== */
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  /* Sets the main font for the whole site */
+  font-family: "Space Grotesk", sans-serif;
+  /* Main font for all text */
 
-  background: #fffdf4;
-  /* Soft background color from your design */
+  background: #fffced;
+  /* Warm light background color from your design */
 
   color: black;
   /* Default text color */
 
   line-height: 1.5;
-  /* Improves readability of text globally */
+  /* Gives comfortable spacing between lines */
 
   -webkit-font-smoothing: antialiased;
-  /* Makes text rendering smoother on many screens */
+  /* Makes text look smoother on many screens */
 }
 
 
 /* ======================================================
-   RESPONSIVE IMAGES
-   Prevents images from overflowing their container
+   IMAGE SAFETY
+   Prevent image overflow issues on small screens
 ====================================================== */
 img {
   max-width: 100%;
-  /* Image never becomes wider than its container */
+  /* Image can never be wider than its parent */
 
   height: auto;
-  /* Keeps the correct aspect ratio */
+  /* Keeps natural image proportion */
 
   display: block;
-  /* Removes small gap under images caused by inline display */
+  /* Removes little inline gap under images */
 }
 
 
 /* ======================================================
-   OPTIONAL (but recommended)
-   Smooth scrolling when clicking anchor links
+   SMOOTH SCROLLING
+   Makes anchor navigation feel more natural
 ====================================================== */
 html {
   scroll-behavior: smooth;

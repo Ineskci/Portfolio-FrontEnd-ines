@@ -1,103 +1,90 @@
-// ==============================================
-// LANGUAGE TOGGLE SYSTEM
-// Switches all texts between French and English
-// Saves the selected language in the browser
-// Animates the button on click
-// Updates button label and page title dynamically
-// ==============================================
+// ======================================================
+// LANGUAGE TOGGLE (FR <-> EN)
+// Goal:
+// - switch text content between French and English
+// - switch placeholders in form fields
+// - update page title + toggle button label
+// - remember selected language in localStorage
+// ======================================================
 
-
-// 1️⃣ Select the language toggle button
+// Find the toggle button by its unique id in HTML.
 const toggleButton = document.getElementById("lang-toggle");
 
-
-// 2️⃣ Default language is French
+// Keep the current language value in JavaScript memory.
+// We start with French by default.
 let currentLanguage = "fr";
 
-
-// ==============================================
-// 3️⃣ FUNCTION → APPLY LANGUAGE TO THE PAGE
-// This updates:
-// - HTML lang attribute
-// - All translated elements
-// - Button label
-// - Page title
-// ==============================================
+// Main function that applies one language everywhere.
 function applyLanguage(language) {
-
-  // Update current language
+  // Save chosen language in runtime variable.
   currentLanguage = language;
 
-  // Update HTML lang attribute (important for SEO & accessibility)
+  // Update <html lang="..."> to improve accessibility and SEO.
   document.documentElement.lang = language;
 
-  // Select all elements that contain translations
-  const elements = document.querySelectorAll("[data-fr]");
+  // Select every element that has translation attributes.
+  // Example: data-fr="..." and data-en="..."
+  const textElements = document.querySelectorAll("[data-fr]");
 
-  // Replace text content according to selected language
-  elements.forEach(element => {
-    element.textContent = element.getAttribute(`data-${language}`);
+  // Loop each translatable element.
+  textElements.forEach(element => {
+    // Build attribute name dynamically:
+    // if language is "fr", key becomes "data-fr"
+    // if language is "en", key becomes "data-en"
+    const translatedValue = element.getAttribute(`data-${language}`);
+
+    // Replace visible text inside the element.
+    element.textContent = translatedValue;
   });
 
-  // ==========================================
-  // Update page title dynamically
-  // ==========================================
+  // Select form fields that have translated placeholders.
+  const placeholderElements = document.querySelectorAll("[data-fr-placeholder]");
+
+  // Loop each field and update placeholder.
+  placeholderElements.forEach(element => {
+    // Build placeholder key dynamically:
+    // data-fr-placeholder OR data-en-placeholder
+    const translatedPlaceholder = element.getAttribute(`data-${language}-placeholder`);
+
+    // Safety check: only set placeholder if attribute exists.
+    if (translatedPlaceholder) {
+      element.setAttribute("placeholder", translatedPlaceholder);
+    }
+  });
+
+  // Update browser tab title and toggle button label.
   if (language === "fr") {
     document.title = "Ines Kaci — Développeuse Web";
-  } else {
-    document.title = "Ines Kaci — Web Developer";
-  }
-
-  // ==========================================
-  // Update toggle button label
-  // FR site → show FR | EN
-  // EN site → show EN | FR
-  // ==========================================
-  if (language === "fr") {
     toggleButton.textContent = "FR | EN";
   } else {
+    document.title = "Ines Kaci — Web Developer";
     toggleButton.textContent = "EN | FR";
   }
 
-  // ==========================================
-  // Save selected language in browser memory
-  // ==========================================
+  // Save language in localStorage so page remembers it after refresh.
   localStorage.setItem("language", language);
 }
 
-
-// ==============================================
-// 4️⃣ CHECK IF LANGUAGE IS SAVED ON PAGE LOAD
-// ==============================================
+// Try reading saved language from previous visits.
 const savedLanguage = localStorage.getItem("language");
 
-if (savedLanguage) {
-  applyLanguage(savedLanguage);
-} else {
-  applyLanguage("fr"); // default
-}
+// Apply saved language if present, else apply French.
+applyLanguage(savedLanguage || "fr");
 
-
-// ==============================================
-// 5️⃣ CLICK EVENT → SWITCH LANGUAGE
-// ==============================================
+// Handle click on toggle button.
 toggleButton.addEventListener("click", () => {
-
-  // Toggle language
+  // Switch language to the opposite one.
   if (currentLanguage === "fr") {
     applyLanguage("en");
   } else {
     applyLanguage("fr");
   }
 
-  // ==========================================
-  // Button click animation
-  // ==========================================
+  // Small click feedback animation:
+  // add class then remove it after 400ms.
   toggleButton.classList.add("active");
 
   setTimeout(() => {
     toggleButton.classList.remove("active");
   }, 400);
-
 });
-

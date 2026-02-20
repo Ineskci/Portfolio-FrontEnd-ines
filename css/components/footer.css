@@ -1,0 +1,15 @@
+/* ======================================================
+   FOOTER SECTION
+   Bottom legal line and personal signature text
+====================================================== */
+.footer {
+  border-top: 3px solid black;
+  background: #fffdf4;
+  padding: 1.6rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: #5a5a5a;
+  font-size: clamp(0.95rem, 2vw, 1.45rem);
+}

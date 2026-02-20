@@ -1,130 +1,386 @@
-<!-- Tells the browser this is an HTML5 document -->
+<!-- ===================================================== -->
+<!-- 1) DOCUMENT TYPE                                      -->
+<!-- Tells the browser this file uses modern HTML5 rules. -->
+<!-- ===================================================== -->
 <!DOCTYPE html>
-<!-- Root of the page — language helps accessibility + SEO -->
+
+<!-- ===================================================== -->
+<!-- 2) ROOT HTML ELEMENT                                  -->
+<!-- lang="fr" means French is the default page language. -->
+<!-- This helps SEO, translation tools, and screen readers. -->
+<!-- ===================================================== -->
 <html lang="fr">
+
 <head>
-  <!-- Character encoding (allows accents, symbols, emojis, etc.)) -->
+  <!-- =================================================== -->
+  <!-- 3) META: CHARACTER ENCODING                        -->
+  <!-- UTF-8 supports accents, symbols, and many alphabets -->
+  <!-- =================================================== -->
   <meta charset="UTF-8">
 
-   <!-- Title shown in the browser tab  -->
+  <!-- =================================================== -->
+  <!-- 4) PAGE TITLE                                       -->
+  <!-- data-fr / data-en are used by language.js to swap  -->
+  <!-- the title text when language is changed.           -->
+  <!-- =================================================== -->
   <title data-fr="Ines Kaci — Développeuse Web" data-en="Ines Kaci — Web Developer">
     Ines Kaci — Développeuse Web
   </title>
 
-  <!-- Import of the main design font from Google Fonts-->
+  <!-- =================================================== -->
+  <!-- 5) FONT IMPORT                                      -->
+  <!-- Loads Space Grotesk from Google Fonts.             -->
+  <!-- =================================================== -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <!-- FontAwesome library → used for icons (mail, arrows, etc.) -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Link to your main CSS file-->
+  <!-- =================================================== -->
+  <!-- 6) MAIN STYLESHEET                                  -->
+  <!-- This is the only CSS file linked directly in HTML. -->
+  <!-- It imports all component CSS files internally.      -->
+  <!-- =================================================== -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/components/header.css">
-
 </head>
 
 <body>
 
-  <!-- ===================================================== -->
-  <!-- HEADER = top bar with logo + navigation + status button-->
-  <!-- ===================================================== -->
+  <!-- =================================================== -->
+  <!-- 7) HEADER                                           -->
+  <!-- Top navigation area visible at the beginning.       -->
+  <!-- Includes logo, menu links, language toggle, status. -->
+  <!-- =================================================== -->
+  <header class="header" id="top">
 
-  <header class="header">
+    <!-- Brand logo text -->
+    <!-- reveal-on-load + data-delay are used by main.js -->
+    <!-- to animate this element on first page load.     -->
+    <div class="logo reveal-on-load" data-delay="0">
+      IK<span class="logo-dot">.</span>
+    </div>
 
-  <!-- Website logo  -->
-  <!-- span allows styling the dot separately  -->
-  <div class="logo">
-    IK<span class="logo-dot">.</span>
-  </div>
+    <!-- Main navigation menu -->
+    <!-- aria-label gives an accessible name to this nav -->
+    <nav class="nav reveal-on-load" data-delay="80" aria-label="Primary navigation">
+      <!-- Anchor links jump to section IDs on the same page -->
+      <a href="#about" data-fr="À PROPOS" data-en="ABOUT">À PROPOS</a>
+      <a href="#projects" data-fr="PROJETS" data-en="PROJECTS">PROJETS</a>
+      <a href="#skills" data-fr="SKILLS" data-en="SKILLS">SKILLS</a>
+      <a href="#contact" data-fr="CONTACT" data-en="CONTACT">CONTACT</a>
+    </nav>
 
-   <!-- Main navigation menu -->
-   <!-- nav is a semantic HTML element for menus  -->
-  <nav class="nav">
+    <!-- Language toggle button -->
+    <!-- language.js finds this by id="lang-toggle" and -->
+    <!-- switches all text between French and English.    -->
+    <button id="lang-toggle" class="btn btn-secondary reveal-on-load" data-delay="120">
+      FR | EN
+    </button>
 
-    <!--  Links scroll to sections of the same page -->
-    <a href="#about" data-fr="À PROPOS" data-en="ABOUT">À PROPOS</a>
-    <a href="#projects" data-fr="PROJETS" data-en="PROJECTS">PROJETS</a>
-    <a href="#skills" data-fr="SKILLS" data-en="SKILLS">SKILLS</a>
-    <a href="#contact" data-fr="CONTACT" data-en="CONTACT">CONTACT</a>
-  </nav>
+    <!-- Availability button in header -->
+    <!-- btn = generic button style -->
+    <!-- btn-status = pink status variation -->
+    <a href="#contact" class="btn btn-status reveal-on-load" data-delay="160" data-fr="DISPO ✦" data-en="AVAILABLE ✦">
+      DISPO ✦
+    </a>
+  </header>
 
-  <!-- 🌍 Language toggle -->
-  <button id="lang-toggle" class="btn btn-secondary">
-   FR | EN
-  </button>
+  <!-- Decorative horizontal line under header -->
+  <div class="header-line"></div>
 
-   <!-- Availability button -->
-   <!-- btn = shared button style -->
-   <!-- btn-status = specific variation -->
-  <a href="#contact" class="btn btn-status"
-     data-fr="DISPO ✦"
-     data-en="AVAILABLE ✦">
-    DISPO ✦
-  </a>
-
-</header>
-
-<!-- Decorative horizontal line under the header -->
-<div class="header-line"></div>
-
+  <!-- =================================================== -->
+  <!-- 8) MAIN CONTENT WRAPPER                             -->
+  <!-- Contains all major content sections of the page.    -->
+  <!-- =================================================== -->
   <main>
+
+    <!-- ================================================= -->
+    <!-- HERO SECTION                                      -->
+    <!-- First section users see: intro + CTAs + stickers -->
+    <!-- ================================================= -->
     <section class="hero">
 
-      <!--  Floating decorative labels ("STICKERS")  -->
-      <div class="sticker sticker-html_css">HTML & CSS</div>
-      <div class="sticker sticker-java_script">JAVA SCRIPT</div>
-      <div class="sticker sticker-ruby">RUBY ON RAILS</div>
-      <div class="sticker sticker-db">DB SQL</div>
+      <!-- Floating decorative stickers -->
+      <div class="sticker sticker-html_css">HTML</div>
+      <div class="sticker sticker-java_script">CSS</div>
+      <div class="sticker sticker-ruby">RUBY</div>
+      <div class="sticker sticker-db">RAILS</div>
 
-      <!-- Decorative STAR element -->
+      <!-- Decorative spinning star -->
       <div class="star-deco">✦</div>
 
-      <!-- Central content container -->
+      <!-- Center hero content container -->
       <div class="hero-content">
 
-        <p class="hero-role"
-           data-fr="Développeuse Web AI"
-           data-en="AI Web Developer">
-           Développeuse Web AI
+        <!-- Small uppercase subtitle/role -->
+        <p class="hero-role reveal-on-load" data-delay="200" data-fr="DÉVELOPPEUSE WEB " data-en=" AI WEB DEVELOPER ">
+          DÉVELOPPEUSE WEB AI
         </p>
 
-        <!-- Main title -->
-        <!-- span.highlight allows coloring only part of the text -->
-        <!-- star-small is positioned near the name -->
-        <h1 class="hero-title">
+        <!-- Main hero heading -->
+        <!-- "highlight" colors surname -->
+        <!-- "star-small" is decorative -->
+        <h1 class="hero-title reveal-on-load" data-delay="260">
           INES <span class="highlight">KACI <span class="star-small">★</span></span>
         </h1>
 
-         <!-- Short introduction text -->
-        <p class="hero-description"
+        <!-- Intro paragraph -->
+        <p class="hero-description reveal-on-load" data-delay="320"
            data-fr="Formée au Wagon, je construis des applications web avec Ruby on Rails, du code propre et un design audacieux."
            data-en="Le Wagon graduate, I build web applications with Ruby on Rails, clean code, and bold design.">
           Formée au Wagon, je construis des applications web avec Ruby on Rails, du code propre et un design audacieux.
         </p>
 
-         <!-- Call-to-action buttons -->
-        <div class="hero-buttons">
-          <!-- Link to GitHub projects -->
-          <a href="https://github.com/Ineskci" class="btn btn-primary"
-             data-fr="Voir mes projets →"
-             data-en="See my projects →">
-            Voir mes projets →
-          </a>
+        <!-- Primary call-to-action buttons -->
+        <div class="hero-buttons reveal-on-load" data-delay="380">
+          <a href="#projects" class="btn btn-primary" data-fr="VOIR MES PROJETS →" data-en="SEE MY PROJECTS →">VOIR MES PROJETS →</a>
+          <a href="#contact" class="btn btn-secondary" data-fr="ME CONTACTER ✉" data-en="CONTACT ME ✉">ME CONTACTER ✉</a>
+        </div>
+      </div>
+    </section>
 
-          <!-- Link to LinkedIn contact -->
-          <a href="https://www.linkedin.com/in/ineskaci-dev/" class="btn btn-secondary"
-             data-fr="Me contacter ✉"
-             data-en="Contact me ✉">
-            Me contacter ✉
-          </a>
+    <!-- ================================================= -->
+    <!-- MARQUEE #1                                       -->
+    <!-- Infinite moving text strip for visual energy      -->
+    <!-- ================================================= -->
+    <section class="marquee marquee-pink" aria-label="Design strip">
+      <div class="marquee-track">
+        <!-- First copy of text -->
+        <span data-fr="DESIGN · CODE · CREATE · REPEAT ✦" data-en="DESIGN · CODE · CREATE · REPEAT ✦">DESIGN · CODE · CREATE · REPEAT ✦</span>
+        <!-- Second copy creates seamless loop effect -->
+        <span aria-hidden="true" data-fr="DESIGN · CODE · CREATE · REPEAT ✦" data-en="DESIGN · CODE · CREATE · REPEAT ✦">DESIGN · CODE · CREATE · REPEAT ✦</span>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ABOUT SECTION                                     -->
+    <!-- Two-column block: text left, stats card right      -->
+    <!-- ================================================= -->
+    <section id="about" class="section about">
+      <div class="section-container about-layout reveal-on-scroll">
+
+        <!-- LEFT COLUMN: profile text -->
+        <div class="about-main">
+          <h2 class="section-title brutal-title" data-fr="À PROPOS." data-en="ABOUT.">À PROPOS.</h2>
+          <div class="pixel-line" aria-hidden="true"></div>
+
+          <p class="about-intro">
+            <span data-fr="Salut ! Je suis Ines, développeuse web junior formée au " data-en="Hi! I’m Ines, a junior web developer trained at ">Salut ! Je suis Ines, développeuse web junior formée au </span>
+            <mark class="mark-yellow" data-fr="Wagon" data-en="Le Wagon">Wagon</mark>
+            <span data-fr=", passionnée par le " data-en=", passionate about ">, passionnée par le </span>
+            <mark class="mark-cyan" data-fr="code propre" data-en="clean code">code propre</mark>
+            <span data-fr="." data-en=".">.</span>
+          </p>
+
+          <p class="section-description"
+             data-fr="Issue d’une formation intensive en développement web, je maîtrise Ruby on Rails, HTML/CSS et les bases de données. Mon approche : apprendre vite, coder bien, et créer des applications web qui ont du sens."
+             data-en="From an intensive web development program, I work with Ruby on Rails, HTML/CSS, and databases. My approach: learn fast, code well, and build meaningful web applications.">
+            Issue d’une formation intensive en développement web, je maîtrise Ruby on Rails, HTML/CSS et les bases de données. Mon approche : apprendre vite, coder bien, et créer des applications web qui ont du sens.
+          </p>
+
+          <!-- Tag-like qualities -->
+          <ul class="about-tags" aria-label="Personal qualities">
+            <li data-fr="CRÉATIVE" data-en="CREATIVE">CRÉATIVE</li>
+            <li class="tag-cyan" data-fr="RIGOUREUSE" data-en="RIGOROUS">RIGOUREUSE</li>
+            <li data-fr="CURIEUSE" data-en="CURIOUS">CURIEUSE</li>
+            <li class="tag-cyan" data-fr="AUTONOME" data-en="AUTONOMOUS">AUTONOME</li>
+          </ul>
         </div>
 
-      </div>
+        <!-- RIGHT COLUMN: stats panel -->
+        <aside class="stats-card" aria-label="Portfolio stats">
+          <p class="stats-file">// stats.js</p>
 
+          <div class="stats-row">
+            <span data-fr="Projets Le Wagon" data-en="Le Wagon Projects">Projets Le Wagon</span>
+            <strong>5+</strong>
+          </div>
+
+          <div class="stats-row">
+            <span data-fr="Semaines de formation" data-en="Training Weeks">Semaines de formation</span>
+            <strong>9</strong>
+          </div>
+
+          <div class="stats-row">
+            <span data-fr="Tasses de Cafés" data-en="Coffee Cups">Tasses de Cafés</span>
+            <strong>∞</strong>
+          </div>
+
+          <div class="stats-row">
+            <span data-fr="Lignes de code" data-en="Lines of Code">Lignes de code</span>
+            <strong>20K+</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- MARQUEE #2                                       -->
+    <!-- Reversed movement direction for contrast          -->
+    <!-- ================================================= -->
+    <section class="marquee marquee-cyan" aria-label="Stack strip">
+      <div class="marquee-track marquee-track-reverse">
+        <span data-fr="RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦" data-en="RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦">RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦</span>
+        <span aria-hidden="true" data-fr="RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦" data-en="RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦">RUBY ON RAILS · HTML & CSS · JAVASCRIPT · SQL · OOP · LE WAGON ✦</span>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- PROJECTS SECTION                                  -->
+    <!-- Portfolio card grid (2 columns desktop)           -->
+    <!-- ================================================= -->
+    <section id="projects" class="section projects">
+      <div class="section-container reveal-on-scroll">
+        <h2 class="section-title brutal-title" data-fr="PROJETS." data-en="PROJECTS.">PROJETS.</h2>
+        <div class="pixel-line" aria-hidden="true"></div>
+        <p class="projects-subtitle" data-fr="UNE SÉLECTION DE MES TRAVAUX RÉCENTS" data-en="A SELECTION OF MY RECENT WORK">UNE SÉLECTION DE MES TRAVAUX RÉCENTS</p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="project-icon">🛒</span>
+            <h3 data-fr="E-Commerce Brutal" data-en="Brutal E-Commerce">E-Commerce Brutal</h3>
+            <p data-fr="Une boutique en ligne au design néobrutaliste avec animations fluides et paiement intégré." data-en="An online store with neo-brutalist design, smooth animations, and integrated checkout.">Une boutique en ligne au design néobrutaliste avec animations fluides et paiement intégré.</p>
+            <ul class="project-tags"><li>REACT</li><li>STRIPE</li><li>TAILWIND</li></ul>
+            <a href="#" class="project-link" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-icon">📸</span>
+            <h3 data-fr="Portfolio Créatif" data-en="Creative Portfolio">Portfolio Créatif</h3>
+            <p data-fr="Un portfolio interactif pour une photographe, avec galerie animée et scroll horizontal." data-en="An interactive portfolio for a photographer with animated gallery and horizontal scrolling.">Un portfolio interactif pour une photographe, avec galerie animée et scroll horizontal.</p>
+            <ul class="project-tags"><li>NEXT.JS</li><li>GSAP</li><li>PRISMIC</li></ul>
+            <a href="#" class="project-link" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-icon">📊</span>
+            <h3 data-fr="Dashboard Analytics" data-en="Analytics Dashboard">Dashboard Analytics</h3>
+            <p data-fr="Tableau de bord temps réel avec visualisation de données et thème sombre." data-en="Real-time dashboard with data visualization and dark theme.">Tableau de bord temps réel avec visualisation de données et thème sombre.</p>
+            <ul class="project-tags"><li>TYPESCRIPT</li><li>D3.JS</li><li>SUPABASE</li></ul>
+            <a href="#" class="project-link" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-icon">📱</span>
+            <h3 data-fr="App Mobile Web" data-en="Mobile Web App">App Mobile Web</h3>
+            <p data-fr="Application PWA de gestion de tâches avec mode hors-ligne et notifications push." data-en="Task management PWA with offline mode and push notifications.">Application PWA de gestion de tâches avec mode hors-ligne et notifications push.</p>
+            <ul class="project-tags"><li>REACT</li><li>PWA</li><li>INDEXEDDB</li></ul>
+            <a href="#" class="project-link" data-fr="Voir le projet →" data-en="View project →">Voir le projet →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- SKILLS SECTION                                    -->
+    <!-- Dark section with animated progress bars          -->
+    <!-- ================================================= -->
+    <section id="skills" class="section skills">
+      <div class="section-container reveal-on-scroll">
+        <h2 class="section-title brutal-title" data-fr="SKILLS." data-en="SKILLS.">SKILLS.</h2>
+        <div class="rainbow-line" aria-hidden="true"></div>
+
+        <div class="skills-layout">
+          <div class="bars-group">
+            <div class="skill-row"><span>RUBY ON RAILS</span><strong>80%</strong><div class="bar"><i style="--fill:80%"></i></div></div>
+            <div class="skill-row"><span>HTML &amp; CSS</span><strong>85%</strong><div class="bar"><i style="--fill:85%"></i></div></div>
+            <div class="skill-row"><span>JAVASCRIPT</span><strong>70%</strong><div class="bar"><i style="--fill:70%"></i></div></div>
+            <div class="skill-row"><span>SQL / BASES DE DONNÉES</span><strong>75%</strong><div class="bar"><i style="--fill:75%"></i></div></div>
+            <div class="skill-row"><span>OOP / ARCHITECTURE</span><strong>70%</strong><div class="bar"><i style="--fill:70%"></i></div></div>
+            <div class="skill-row"><span>GIT / GITHUB</span><strong>75%</strong><div class="bar"><i style="--fill:75%"></i></div></div>
+          </div>
+
+          <div class="skills-side">
+            <h3 data-fr="OUTILS &amp; TECHNOLOGIES" data-en="TOOLS &amp; TECHNOLOGIES">OUTILS &amp; TECHNOLOGIES</h3>
+            <ul class="tools-grid">
+              <li>VS CODE</li><li>GITHUB</li><li>HEROKU</li><li>FIGMA</li>
+              <li>POSTGRESQL</li><li>BOOTSTRAP</li><li>STIMULUS</li><li>LE WAGON</li>
+            </ul>
+
+            <div class="terminal-card">
+              <p>$ whoami</p>
+              <p><span class="pink">ines@dev:</span><span>~$ </span><span data-fr="Junior dev, Le Wagon." data-en="Junior dev, Le Wagon.">Junior dev, Le Wagon.</span></p>
+              <p>
+                <span data-fr="Je crois que le web peut être " data-en="I believe the web can be ">Je crois que le web peut être </span>
+                <mark class="mark-yellow" data-fr="bien codé" data-en="well coded">bien codé</mark>
+                <span data-fr=" et " data-en=" and "> et </span>
+                <mark class="mark-cyan" data-fr="accessible" data-en="accessible">accessible</mark>
+                <span data-fr="." data-en=".">.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- MARQUEE #3                                       -->
+    <!-- ================================================= -->
+    <section class="marquee marquee-dark" aria-label="Availability strip">
+      <div class="marquee-track">
+        <span data-fr="DISPONIBLE POUR FREELANCE · CONTACTEZ-MOI ✦" data-en="AVAILABLE FOR FREELANCE · CONTACT ME ✦">DISPONIBLE POUR FREELANCE · CONTACTEZ-MOI ✦</span>
+        <span aria-hidden="true" data-fr="DISPONIBLE POUR FREELANCE · CONTACTEZ-MOI ✦" data-en="AVAILABLE FOR FREELANCE · CONTACT ME ✦">DISPONIBLE POUR FREELANCE · CONTACTEZ-MOI ✦</span>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- CONTACT SECTION                                   -->
+    <!-- Form + social links                               -->
+    <!-- ================================================= -->
+    <section id="contact" class="section contact">
+      <div class="section-container reveal-on-scroll">
+        <h2 class="section-title brutal-title contact-title" data-fr="CONTACT." data-en="CONTACT.">CONTACT.</h2>
+        <div class="pixel-line" aria-hidden="true"></div>
+
+        <p class="contact-subtitle" data-fr="Un projet en tête ? Discutons-en !" data-en="Got a project in mind? Let’s talk!">
+          Un projet en tête ? Discutons-en !
+        </p>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <label>
+              <span data-fr="NOM" data-en="NAME">NOM</span>
+              <input type="text" name="name" data-fr-placeholder="Votre nom" data-en-placeholder="Your name" placeholder="Votre nom">
+            </label>
+
+            <label>
+              <span>EMAIL</span>
+              <input type="email" name="email" data-fr-placeholder="votre@email.com" data-en-placeholder="your@email.com" placeholder="votre@email.com">
+            </label>
+          </div>
+
+          <label>
+            <span>MESSAGE</span>
+            <textarea name="message" rows="5" data-fr-placeholder="Parlez-moi de votre projet..." data-en-placeholder="Tell me about your project..." placeholder="Parlez-moi de votre projet..."></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-contact" data-fr="ENVOYER LE MESSAGE ✦" data-en="SEND MESSAGE ✦">
+            ENVOYER LE MESSAGE ✦
+          </button>
+        </form>
+
+        <div class="social-links">
+          <a href="https://github.com/Ineskci" target="_blank" rel="noreferrer">GITHUB</a>
+          <a href="https://www.linkedin.com/in/ineskaci-dev/" target="_blank" rel="noreferrer">LINKEDIN</a>
+          <a href="#">TWITTER</a>
+          <a href="#">DRIBBBLE</a>
+        </div>
+      </div>
     </section>
   </main>
-  <script src="js/language.js"></script>
 
+  <!-- =================================================== -->
+  <!-- FOOTER                                              -->
+  <!-- =================================================== -->
+  <footer class="footer">
+    <p data-fr="© 2026 Ines Kaci. Tous droits réservés." data-en="© 2026 Ines Kaci. All rights reserved.">
+      © 2026 Ines Kaci. Tous droits réservés.
+    </p>
+
+    <p data-fr="Fait avec ♥ et beaucoup de café" data-en="Made with ♥ and a lot of coffee">
+      Fait avec ♥ et beaucoup de café
+    </p>
+  </footer>
+
+  <!-- Load scripts at the end for better loading flow -->
+  <script src="js/language.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,181 @@
+/* ======================================================
+   SHARED SECTION LAYOUT
+   Same spacing and title system for all big sections
+   → This block defines the common structure used
+     by all major sections of the page (about, projects, etc.)
+====================================================== */
+
+/* Main section container */
+.section {
+  padding: 5.4rem 1.25rem;
+  /* Adds vertical space (top/bottom) and horizontal space (left/right)
+     → gives breathing room inside each section */
+}
+
+/* Inner wrapper that controls content width */
+.section-container {
+  max-width: 1120px;
+  /* Prevents content from becoming too wide on large screens */
+
+  margin: 0 auto;
+  /* Centers the container horizontally in the page */
+}
+
+/* Main section titles (ABOUT, PROJECTS, etc.) */
+.section-title {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  /* Responsive font size:
+     → minimum = 2.6rem
+     → preferred = 7% of viewport width
+     → maximum = 5rem */
+
+  line-height: 0.95;
+  /* Reduces vertical spacing between title lines */
+
+  margin-bottom: 0.8rem;
+  /* Space under the title */
+
+  font-weight: 900;
+  /* Extra bold text */
+
+  letter-spacing: -1px;
+  /* Slightly tighter letters for strong visual style */
+}
+
+/* Optional style used for brutalist uppercase titles */
+.brutal-title {
+  text-transform: uppercase;
+  /* Converts text to ALL CAPS */
+}
+
+/* Paragraph text used under section titles */
+.section-description {
+  max-width: 620px;
+  /* Limits line length for readability */
+
+  color: #4e4e4e;
+  /* Soft gray text color */
+
+  font-size: clamp(1.06rem, 1.7vw, 2rem);
+  /* Responsive text size */
+
+  line-height: 1.5;
+  /* Improves reading comfort */
+}
+
+
+/* Pixel decorative line under titles */
+.pixel-line {
+  width: 100%;
+  /* Takes full width of container */
+
+  max-width: 470px;
+  /* But never exceeds this width */
+
+  height: 9px;
+  /* Thickness of the decorative line */
+
+  margin-bottom: 1.8rem;
+  /* Space under the line */
+
+  background: repeating-linear-gradient(
+    to right,
+    #ea2e6d 0,
+    #ea2e6d 22px,
+    #ffd91a 22px,
+    #ffd91a 42px,
+    #13daec 42px,
+    #13daec 62px
+  );
+  /* Creates a repeating colored stripe pattern
+     → pink → yellow → cyan → repeat */
+}
+
+/* Rainbow line for dark technical section */
+.rainbow-line {
+  width: 100%;
+  /* Full width */
+
+  height: 8px;
+  /* Slightly thinner than pixel line */
+
+  margin-bottom: 2rem;
+  /* Space below */
+
+  background: linear-gradient(90deg, #ea2e6d 0%, #ffd91a 44%, #13daec 100%);
+  /* Smooth gradient from pink → yellow → cyan */
+}
+
+/* Highlighted words in text */
+mark {
+  font-weight: 700;
+  /* Makes highlighted text bold */
+
+  color: black;
+  /* Ensures readable text color */
+
+  padding: 0 0.2rem;
+  /* Adds small horizontal spacing inside highlight */
+}
+
+/* Yellow highlight variation */
+.mark-yellow {
+  background: #ffd91a;
+}
+
+/* Cyan highlight variation */
+.mark-cyan {
+  background: #13daec;
+}
+
+
+/* ======================================================
+   REVEAL ANIMATION HELPERS
+   Used by JavaScript for entrance and scroll effects
+   → Elements start hidden and appear smoothly
+====================================================== */
+
+/* Initial hidden state */
+.reveal-on-load,
+.reveal-on-scroll {
+  opacity: 0;
+  /* Element is invisible */
+
+  transform: translateY(20px);
+  /* Moves element slightly downward */
+}
+
+/* Visible state added by JavaScript */
+.reveal-on-load.is-visible,
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  /* Element becomes visible */
+
+  transform: translateY(0);
+  /* Moves back to original position */
+
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  /* Smooth animation effect */
+}
+
+
+/* Responsive spacing tweaks for tablets and phones */
+@media (max-width: 900px) {
+
+  .section {
+    padding: 4rem 1rem;
+    /* Reduces spacing on smaller screens
+       → prevents layout from feeling too large */
+  }
+
+  .pixel-line {
+    max-width: 320px;
+    /* Shorter decorative line on small screens */
+
+    height: 7px;
+    /* Slightly thinner */
+
+    margin-bottom: 1.2rem;
+    /* Less spacing below */
+  }
+}

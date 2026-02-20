@@ -1,31 +1,63 @@
 /* ======================================================
-   IMPORT GLOBAL STYLES
-   base.css contains:
-   - reset
-   - typography
-   - global page styles
-   This file must always be loaded FIRST
+   IMPORT ORDER MATTERS
+   The order of these files is very important.
+   CSS is read from top to bottom.
+   Files loaded later can override earlier styles.
+
+   1) Base first → global rules for whole site
+   2) Shared components → reusable UI parts
+   3) Section-specific components → styles for each section
+====================================================== */
+
+
+/* ======================================================
+   BASE RESET + PAGE DEFAULTS
+   This file prepares the page:
+   - removes browser default styles
+   - sets fonts, colors, spacing rules
+   - creates a clean starting point
 ====================================================== */
 @import url("base.css");
 
 
 /* ======================================================
-   IMPORT COMPONENT STYLES
-   Each UI block has its own CSS file
-   This keeps the project clean and professional
+   HEADER AND HERO AREA
+   Styles for the top of the page:
+   - navigation bar
+   - logo
+   - hero introduction section
+   - floating decorative stickers
 ====================================================== */
-
-/* Header → logo, navigation, availability button */
 @import url("components/header.css");
-
-/* Hero section → big title, description, layout */
 @import url("components/hero.css");
-
-/* Buttons → shared styles for all buttons */
-@import url("components/buttons.css");
-
-/* Stickers → floating labels around the page */
 @import url("components/stickers.css");
 
-/* Animations → keyframes and motion effects */
+
+/* ======================================================
+   REUSABLE UI COMPONENTS
+   These are shared building blocks used everywhere:
+   - buttons
+   - scrolling text strips
+   - animations
+   - shared section layout system
+====================================================== */
+@import url("components/buttons.css");
+@import url("components/marquee.css");
 @import url("components/animations.css");
+@import url("components/sections.css");
+
+
+/* ======================================================
+   MAIN CONTENT SECTIONS
+   Styles for each major page section:
+   - about area
+   - project cards
+   - skills section
+   - contact form
+   - footer
+====================================================== */
+@import url("components/about.css");
+@import url("components/projects.css");
+@import url("components/skills.css");
+@import url("components/contact.css");
+@import url("components/footer.css");

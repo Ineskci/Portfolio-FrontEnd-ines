@@ -1,0 +1,211 @@
+/* ======================================================
+   PROJECTS SECTION
+   Grid of portfolio cards with hover interactions
+====================================================== */
+.projects {
+  background: #fffdf4;
+  /* Keeps same light background family as surrounding sections */
+}
+
+.projects-subtitle {
+  text-transform: uppercase;
+  /* Matches title style language */
+
+  letter-spacing: 0.1em;
+  /* Airy typography look */
+
+  color: #5b5b5b;
+  /* Soft gray to reduce hierarchy compared to main title */
+
+  margin-bottom: 2rem;
+  /* Space before card grid */
+}
+
+.projects-grid {
+  display: grid;
+  /* Activates card grid layout */
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Two equal columns that shrink safely */
+
+  gap: 1.6rem;
+  /* Space between cards */
+}
+
+.project-card {
+  border: 3px solid black;
+  /* Brutalist frame */
+
+  box-shadow: 7px 7px 0 black;
+  /* Brutalist depth effect */
+
+  padding: 1.8rem 1.6rem;
+  /* Inner card spacing */
+
+  min-height: 330px;
+  /* Forces visual alignment between cards */
+
+  position: relative;
+  /* Required for decorative square pseudo-element */
+
+  transition: transform 0.2s ease;
+  /* Smooth hover movement */
+}
+
+.project-card::after {
+  content: "";
+  /* Creates decorative element without extra HTML */
+
+  position: absolute;
+  /* Allows precise corner placement */
+
+  top: 0;
+  right: 0;
+  /* Anchors square in top-right corner */
+
+  width: 104px;
+  height: 104px;
+  /* Decorative block size */
+}
+
+.project-card:nth-child(odd)::after {
+  background: #f8b9c9;
+  /* Pink square on odd cards */
+}
+
+.project-card:nth-child(even)::after {
+  background: #d8efe9;
+  /* Mint square on even cards */
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  /* Lifts card on hover */
+}
+
+.project-icon {
+  font-size: 1.65rem;
+  /* Emoji/icon size */
+
+  display: inline-block;
+  /* Lets margin apply cleanly */
+
+  margin-bottom: 0.6rem;
+  /* Space under icon */
+}
+
+.project-card h3 {
+  font-size: clamp(2.05rem, 3.3vw, 3rem);
+  /* Responsive title size in safe bounds */
+
+  line-height: 1.1;
+  /* Tight heading style */
+
+  margin-bottom: 0.6rem;
+  /* Space before paragraph */
+
+  padding-right: 112px;
+  /* Prevents text from overlapping decorative square */
+
+  transition: color 0.2s ease;
+  /* Smooth color change on hover */
+}
+
+.project-card p {
+  font-size: 1.05rem;
+  /* Body text size */
+
+  color: #4f4f4f;
+  /* Softer gray for secondary text */
+
+  line-height: 1.5;
+  /* Readable paragraph spacing */
+
+  max-width: 44ch;
+  /* Controls line length for readability */
+}
+
+.project-tags {
+  margin-top: 1rem;
+  /* Space above tech tags */
+
+  list-style: none;
+  /* Remove bullets */
+
+  display: flex;
+  /* Place tags in row */
+
+  flex-wrap: wrap;
+  /* Wrap if there is not enough width */
+
+  gap: 0.6rem;
+  /* Space between tags */
+}
+
+.project-tags li {
+  border: 2px solid black;
+  /* Tag border style */
+
+  padding: 0.35rem 0.75rem;
+  /* Tag spacing */
+
+  font-weight: 700;
+  /* Strong label text */
+}
+
+.project-link {
+  margin-top: 1rem;
+  /* Space before link */
+
+  display: inline-block;
+  /* Allows transform/opacity animation */
+
+  text-decoration: none;
+  /* Remove underline */
+
+  color: #ea2e6d;
+  /* Accent pink */
+
+  font-weight: 700;
+  /* Link emphasis */
+
+  opacity: 0;
+  /* Hidden by default */
+
+  transform: translateY(6px);
+  /* Slightly moved down by default */
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  /* Smooth reveal animation */
+}
+
+.project-card:hover h3 {
+  color: #ea2e6d;
+  /* Heading turns pink on hover */
+}
+
+.project-card:hover .project-link {
+  opacity: 1;
+  /* Show link on hover */
+
+  transform: translateY(0);
+  /* Move to original position */
+}
+
+/* One-column layout on smaller screens */
+@media (max-width: 860px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    /* Stack cards vertically */
+  }
+
+  .project-card {
+    min-height: auto;
+    /* Let card height depend on content */
+  }
+
+  .project-card h3 {
+    padding-right: 88px;
+    /* Smaller safety space for smaller decorative square area */
+  }
+}

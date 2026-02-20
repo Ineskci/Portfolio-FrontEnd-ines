@@ -1,23 +1,48 @@
 /* ======================================================
-   ANIMATIONS
+   KEYFRAME ANIMATIONS
+   Small reusable motions for dynamic UI
 ====================================================== */
 
-/* flottement doux */
 @keyframes float {
   0% { transform: translateY(0); }
+  /* Start at original position */
+
   50% { transform: translateY(-12px); }
+  /* Move slightly up in the middle */
+
   100% { transform: translateY(0); }
+  /* Return to original position */
 }
 
-/* rotation continue */
 @keyframes spin {
   from { transform: rotate(0deg); }
+  /* Rotation start */
+
   to { transform: rotate(360deg); }
+  /* Full circle rotation */
 }
 
-/* oscillation petite étoile */
 @keyframes wiggle {
   0% { transform: rotate(0deg); }
+  /* Neutral state */
+
   50% { transform: rotate(15deg); }
+  /* Small tilt */
+
   100% { transform: rotate(0deg); }
+  /* Back to neutral */
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  /* Start hidden and a bit lower */
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* End fully visible at normal position */
 }

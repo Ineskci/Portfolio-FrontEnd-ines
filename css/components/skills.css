@@ -1,0 +1,201 @@
+/* ======================================================
+   SKILLS SECTION
+   Dark technical zone with bars and tools
+   → This section displays technical skills with progress bars
+     and tools in a dark themed area
+====================================================== */
+
+/* Main container of the skills section */
+.skills {
+  background: #050505;
+  /* Very dark background for a technical / terminal style */
+
+  color: #f3f1e5;
+  /* Light text color for strong contrast */
+
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  /* Adds strong horizontal borders */
+
+  border-radius: 12px;
+  /* Slightly rounded corners */
+}
+
+/* Section title color inside skills area */
+.skills .section-title {
+  color: #f3f1e5;
+  /* Ensures title stays visible on dark background */
+}
+
+/* Layout for skills content */
+.skills-layout {
+  display: grid;
+  /* Uses CSS Grid layout */
+
+  grid-template-columns: 1fr 1fr;
+  /* Creates two equal columns */
+
+  gap: 2rem;
+  /* Space between columns */
+}
+
+/* Each individual skill row */
+.skill-row {
+  margin-bottom: 1.1rem;
+  /* Space between skills */
+}
+
+/* Skill name (example: HTML, CSS, JS) */
+.skill-row span {
+  font-weight: 700;
+  /* Bold text */
+
+  letter-spacing: 0.02em;
+  /* Slightly spaced letters */
+}
+
+/* Skill percentage (example: 90%) */
+.skill-row strong {
+  color: #ea2e6d;
+  /* Accent color */
+
+  float: right;
+  /* Moves percentage to the right side */
+}
+
+/* Outer progress bar container */
+.bar {
+  margin-top: 0.5rem;
+  /* Space above the bar */
+
+  width: 100%;
+  /* Full width */
+
+  border: 1px solid #494949;
+  /* Subtle border */
+
+  height: 16px;
+  /* Thickness of bar */
+
+  overflow: hidden;
+  /* Prevents inner bar from overflowing */
+}
+
+/* Inner progress bar (animated fill) */
+.bar i {
+  display: block;
+  /* Makes element behave like a rectangle */
+
+  height: 100%;
+  /* Same height as container */
+
+  width: 0;
+  /* Starts empty (animation will fill it) */
+
+  background: #ea2e6d;
+  /* Fill color */
+
+  transition: width 1.1s ease;
+  /* Smooth animation when width changes */
+
+  /* The width value comes from CSS variable --fill */
+}
+
+/* When section becomes visible, bars fill */
+.skills.is-visible .bar i {
+  width: var(--fill);
+  /* JavaScript sets --fill value (example: 80%) */
+}
+
+/* Right column titles (TOOLS, STACK, etc.) */
+.skills-side h3 {
+  color: #9b9b9b;
+  /* Secondary muted title color */
+
+  font-size: 1.15rem;
+  /* Medium title size */
+
+  margin-bottom: 1rem;
+  /* Space under title */
+
+  letter-spacing: 0.08em;
+  /* Spaced letters for tech style */
+}
+
+/* Grid of tools (React, Git, Figma, etc.) */
+.tools-grid {
+  list-style: none;
+  /* Removes default bullet points */
+
+  display: flex;
+  /* Flexible layout */
+
+  flex-wrap: wrap;
+  /* Allows items to go to next line */
+
+  gap: 0.7rem;
+  /* Space between tool tags */
+
+  margin-bottom: 1.4rem;
+}
+
+/* Individual tool badge */
+.tools-grid li {
+  border: 2px solid #6e6e6e;
+  /* Outline style */
+
+  color: #f3f1e5;
+  /* Light text */
+
+  padding: 0.5rem 0.9rem;
+  /* Inner spacing */
+
+  font-weight: 700;
+  /* Bold text */
+}
+
+/* Terminal style info card */
+.terminal-card {
+  border: 2px solid #3e3e3e;
+  /* Frame like a console window */
+
+  background: #0a0a0a;
+  /* Dark panel */
+
+  padding: 1rem;
+  /* Inner spacing */
+}
+
+/* Text inside terminal card */
+.terminal-card p {
+  margin-bottom: 0.55rem;
+  /* Space between lines */
+
+  font-family: monospace;
+  /* Code-style font */
+
+  font-size: 1.2rem;
+  /* Slightly large text */
+}
+
+/* Highlighted terminal text */
+.terminal-card .pink {
+  color: #ea2e6d;
+  /* Accent color for important words */
+}
+
+/* Tablet layout adjustment */
+@media (max-width: 980px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+    /* Switch from 2 columns → 1 column */
+  }
+}
+
+/* Mobile text size adjustment */
+@media (max-width: 640px) {
+  .terminal-card p {
+    font-size: 1rem;
+    /* Smaller text for small screens */
+  }
+}

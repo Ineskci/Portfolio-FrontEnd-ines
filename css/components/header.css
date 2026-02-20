@@ -1,162 +1,191 @@
 /* ======================================================
-   HEADER CONTAINER
-   Holds logo, navigation and status button
+   HEADER WRAPPER
+   Top bar with logo, menu, language button, availability button
 ====================================================== */
 .header {
   display: flex;
-  /* Activates Flexbox layout → children align in a row */
+  /* Puts children in one horizontal row */
 
   align-items: center;
-  /* Vertically centers all items inside the header */
+  /* Vertically centers all header items */
 
   justify-content: space-between;
-  /* Pushes elements apart:
-     logo → left
-     nav → center area
-     button → right */
+  /* Spreads items from left to right */
+
+  gap: 1rem;
+  /* Adds space between header items */
 
   padding: 1.2rem 2rem;
-  /* Inner spacing inside the header */
+  /* Inner spacing around content */
 
   background: #fffdf4;
-  /* Same background as page for seamless design */
+  /* Same warm background as design system */
 
   position: relative;
-  /* Allows stacking control with z-index */
+  /* Allows layering with z-index */
 
   z-index: 10;
-  /* Ensures header stays above decorative elements */
+  /* Keeps header above decorative elements */
 }
 
 
-/* ======================================================
-   LOGO "IK."
-====================================================== */
+/* Logo text (IK.) */
 .logo {
   font-weight: 900;
-  /* Very bold text for strong visual identity */
+  /* Very bold identity style */
 
   font-size: 1.5rem;
-  /* Controls logo size */
+  /* Large enough to anchor header */
 
   letter-spacing: -1px;
-  /* Slightly tightens letters for modern look */
+  /* Slightly tighter letters for style */
 }
 
-/* Pink dot in the logo */
+/* Pink accent dot in logo */
 .logo-dot {
   color: #ea2e6d;
 }
 
 
 /* ======================================================
-   NAVIGATION MENU
+   NAVIGATION LINKS
 ====================================================== */
 .nav {
   display: flex;
-  /* Places navigation links in a horizontal row */
+  /* Places links in one row */
 
   gap: 3rem;
-  /* Space between links */
+  /* Space between each link */
 
   font-weight: 700;
-  /* Makes menu text strong */
+  /* Strong menu typography */
 
   letter-spacing: 0.05em;
-  /* Slight spacing between letters */
+  /* Slight extra letter spacing */
 }
 
-
-/* Individual navigation links */
 .nav a {
   text-decoration: none;
-  /* Removes default underline */
+  /* Removes underline */
 
   color: black;
-  /* Default text color */
+  /* Default menu text color */
 
   transition: transform 0.2s ease, color 0.2s ease;
-  /* Smooth animation for hover effects */
+  /* Smooth hover transition */
 }
 
-/* Hover interaction */
 .nav a:hover {
   transform: translateY(-2px);
-  /* Moves link slightly up → interactive feel */
+  /* Moves link up a little on hover */
 
   color: #ea2e6d;
-  /* Accent color on hover */
+  /* Highlight color on hover */
 }
 
 
 /* ======================================================
-   STATUS BUTTON (DISPO)
-   Special button style for availability
+   AVAILABILITY BUTTON STYLE
+   This is the pink "DISPO" button in header
 ====================================================== */
 .btn-status {
   background: #ea2e6d;
-  /* Accent color background */
-
   color: white;
-  /* Text color for contrast */
-
   padding: 0.7rem 1.4rem;
-  /* Inner spacing → controls button size */
-
   border: 3px solid black;
-  /* Bold brutalist border */
-
   font-weight: bold;
   text-decoration: none;
-  /* Removes underline because it's a link */
-
   box-shadow: 6px 6px 0 black;
-  /* Creates brutalist 3D shadow */
-
   transition: transform 0.2s ease;
-  /* Smooth hover animation */
 }
 
-/* Hover effect */
 .btn-status:hover {
   transform: translateY(-3px);
-  /* Moves button upward → interactive feedback */
 }
 
 
-/* ======================================================
-   DIVIDER LINE UNDER HEADER
-   Visual separation between header and hero section
-====================================================== */
+/* Black line under header */
 .header-line {
   height: 3px;
-  /* Thickness of the line */
-
   background: black;
-  /* Color of the line */
-
   width: 100%;
-  /* Full width of the page */
 }
 
-/* ======================================
-   LANGUAGE TOGGLE BUTTON ANIMATION
-====================================== */
+
+/* Language button micro interaction */
 #lang-toggle {
   cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* effet quand on clique */
 #lang-toggle:active {
   transform: translateY(3px);
   box-shadow: 2px 2px 0 black;
 }
 
-/* micro animation hover */
 #lang-toggle:hover {
   transform: translateY(-2px);
+}
+
+
+/* ======================================================
+   TABLET HEADER LAYOUT
+====================================================== */
+@media (max-width: 980px) {
+  .header {
+    flex-wrap: wrap;
+    /* Allows items to move on multiple rows */
+
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    order: 1;
+    margin-right: auto;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1.4rem;
+    font-size: 0.93rem;
+  }
+
+  #lang-toggle,
+  .btn-status {
+    order: 2;
+  }
+}
+
+
+/* ======================================================
+   MOBILE HEADER LAYOUT
+====================================================== */
+@media (max-width: 640px) {
+  .header {
+    align-items: stretch;
+  }
+
+  .logo {
+    width: 100%;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .nav {
+    justify-content: space-between;
+    gap: 0.65rem;
+    letter-spacing: 0.02em;
+    font-size: 0.8rem;
+  }
+
+  #lang-toggle,
+  .btn-status {
+    flex: 1;
+    text-align: center;
+    padding: 0.65rem 0.6rem;
+    box-shadow: 4px 4px 0 black;
+  }
 }

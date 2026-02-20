@@ -1,88 +1,81 @@
 /* ======================================================
-   BUTTON CONTAINER
-   Holds the call-to-action buttons in the hero section
+   HERO BUTTON GROUP
+   Holds main action buttons in hero area
+   → This container organizes the main buttons in the hero section
 ====================================================== */
 .hero-buttons {
   display: flex;
-  /* Places buttons in a horizontal row */
+  /* Uses Flexbox to align buttons in a row */
 
   justify-content: center;
   /* Centers buttons horizontally */
 
   gap: 1rem;
-  /* Space between buttons */
+  /* Space between each button */
 
   flex-wrap: wrap;
-  /* Allows buttons to move to next line on small screens
-     → improves responsiveness */
+  /* Wrap lets buttons go to next line on small screens */
 }
 
 
 /* ======================================================
    BASE BUTTON STYLE
-   Shared design applied to all buttons
+   Shared by all button variants
+   → This is the main button design used everywhere
 ====================================================== */
 .btn {
   padding: 0.9rem 1.8rem;
-  /* Inner spacing → controls button size */
+  /* Space inside the button (top/bottom | left/right) */
 
   border: 3px solid black;
-  /* Strong brutalist border */
+  /* Thick border for strong visual style */
 
   text-decoration: none;
-  /* Removes underline because buttons are links */
+  /* Removes underline if button is a link */
 
   font-weight: bold;
-  /* Makes text visually strong */
+  /* Makes text strong and visible */
 
   box-shadow: 6px 6px 0 black;
-  /* Creates brutalist 3D effect */
+  /* Creates a brutal / retro shadow effect */
 
-  transition: transform 0.2s ease;
-  /* Smooth movement animation on hover */
-}
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  /* Smooth animation for hover and click */
 
-.btn {
   cursor: pointer;
+  /* Shows pointer cursor on hover */
 }
+
+/* Button pressed effect */
 .btn:active {
   transform: translateY(2px);
+  /* Moves button slightly down when clicked */
+
   box-shadow: 3px 3px 0 black;
+  /* Reduces shadow to simulate press */
 }
 
-
-
-/* ======================================================
-   PRIMARY BUTTON
-   Main action → strongest visual importance
-====================================================== */
-.btn-primary {
-  background: black;
-  /* Dark background for emphasis */
-
-  color: white;
-  /* High contrast text */
-}
-
-
-/* ======================================================
-   SECONDARY BUTTON
-   Alternative action → softer emphasis
-====================================================== */
-.btn-secondary {
-  background: #ffd91a;
-  /* Accent yellow color */
-
-  color: black;
-  /* Readable text color */
-}
-
-
-/* ======================================================
-   HOVER INTERACTION
-   Applied to all buttons
-====================================================== */
+/* Button hover effect */
 .btn:hover {
   transform: translateY(-4px);
-  /* Moves button upward → tactile interaction feedback */
+  /* Moves button slightly up when hovered */
+}
+
+
+/* Primary dark action button */
+.btn-primary {
+  background: black;
+  /* Dark background */
+
+  color: white;
+  /* Light text for contrast */
+}
+
+/* Secondary yellow action button */
+.btn-secondary {
+  background: #ffd91a;
+  /* Bright yellow background */
+
+  color: black;
+  /* Dark text for readability */
 }

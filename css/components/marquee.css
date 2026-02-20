@@ -1,0 +1,102 @@
+/* ======================================================
+   MARQUEE STRIPS
+   This creates a horizontal text banner that moves forever
+====================================================== */
+.marquee {
+  overflow: hidden;
+  /* Hides text when it moves outside the container */
+
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  /* Adds strong brutal-style borders */
+}
+
+
+/* ======================================================
+   MOVING TEXT CONTAINER
+   This holds the repeated text and moves it
+====================================================== */
+.marquee-track {
+  display: flex;
+  /* Places text in a horizontal row */
+
+  width: max-content;
+  /* Makes the container as wide as its content */
+
+  animation: marquee-left 17s linear infinite;
+  /* Moves text continuously from right to left */
+}
+
+
+/* ======================================================
+   TEXT STYLE INSIDE MARQUEE
+====================================================== */
+.marquee-track span {
+  flex: 0 0 auto;
+  /* Prevents text from shrinking */
+
+  white-space: nowrap;
+  /* Keeps text on one single line */
+
+  text-transform: uppercase;
+  /* Makes all letters capital */
+
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  /* Adds spacing between letters */
+
+  padding: 0.55rem 1rem;
+  /* Space around each text block */
+
+  font-size: clamp(0.9rem, 2vw, 1.35rem);
+  /* Responsive text size depending on screen */
+}
+
+
+/* ======================================================
+   REVERSE MOVEMENT VARIATION
+   This makes text move in the opposite direction
+====================================================== */
+.marquee-track-reverse {
+  animation-name: marquee-right;
+}
+
+
+/* ======================================================
+   COLOR THEMES FOR DIFFERENT STRIPS
+====================================================== */
+.marquee-pink {
+  background: #ea2e6d;
+  color: white;
+}
+
+.marquee-cyan {
+  background: #13daec;
+  color: black;
+}
+
+.marquee-dark {
+  background: #050505;
+  color: #f3f1e5;
+}
+
+
+/* ======================================================
+   ANIMATION: MOVE LEFT
+   Text slides from right to left forever
+====================================================== */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+  /* Moves the text half its width to create loop effect */
+}
+
+
+/* ======================================================
+   ANIMATION: MOVE RIGHT
+   Text slides from left to right forever
+====================================================== */
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}

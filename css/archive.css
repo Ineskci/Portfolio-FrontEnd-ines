@@ -1,0 +1,178 @@
+:root {
+  --paper: #e8e2d6;
+  /* Main background color of the site (paper style) */
+
+  --ink: #1a1a1a;
+  /* Main text and border color (dark ink) */
+
+  --accent: #2d4739;
+  /* Accent color for highlights or UI elements */
+}
+
+/* Apply box-sizing to everything for easier layout control */
+* {
+  box-sizing: border-box;
+  /* Width and height include padding and border */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  /* Main font of the page */
+
+  background-color: var(--paper);
+  /* Uses the paper color variable */
+
+  color: var(--ink);
+  /* Default text color */
+
+  background-image: url("../images/felt.png")
+  /* Subtle fabric texture overlay */
+}
+
+/* Special serif italic font utility class */
+.font-serif-italic {
+  font-family: "DM Serif Display", serif;
+  /* Elegant serif font */
+
+  font-style: italic;
+  /* Makes text italic */
+}
+
+/* Main grid layout for archive cards */
+.bento-grid {
+  display: grid;
+  /* Uses CSS grid */
+
+  grid-template-columns: repeat(12, 1fr);
+  /* 12 equal columns layout */
+
+  gap: 2px;
+  /* Small spacing between items */
+
+  background-color: var(--ink);
+  /* Dark background between cards */
+
+  border: 2px solid var(--ink);
+  /* Outer border */
+}
+
+/* Individual grid item (card) */
+.bento-item {
+  background-color: var(--paper);
+  /* Paper background */
+
+  padding: 2.5rem;
+  /* Inner spacing */
+
+  position: relative;
+  /* Allows absolute elements inside */
+
+  overflow: hidden;
+  /* Hides overflowing content */
+
+  transition: background-color 0.5s ease;
+  /* Smooth background transition */
+}
+
+/* Decorative tape element on cards */
+.tape {
+  position: absolute;
+  /* Positioned relative to parent */
+
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  /* Centered and slightly rotated */
+
+  width: 100px;
+  height: 30px;
+
+  background: rgba(255, 255, 255, 0.3);
+  /* Transparent white look */
+
+  backdrop-filter: blur(2px);
+  /* Glass effect */
+
+  z-index: 10;
+  /* Stays above other content */
+}
+
+/* Archive images style */
+.archive-img {
+  filter: sepia(20%) contrast(1.1) grayscale(0.5);
+  /* Vintage photo effect */
+
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  /* Smooth cinematic animation */
+}
+
+/* Image effect when hovering the card */
+.bento-item:hover .archive-img {
+  filter: sepia(0%) contrast(1) grayscale(0);
+  /* Removes vintage effect */
+
+  transform: scale(1.05);
+  /* Slight zoom */
+}
+
+/* Custom cursor circle */
+#cursor {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--ink);
+  /* Circular outline */
+
+  border-radius: 50%;
+  /* Makes it round */
+
+  position: fixed;
+  /* Follows screen position */
+
+  pointer-events: none;
+  /* Cursor does not block clicks */
+
+  z-index: 9999;
+  /* Always on top */
+
+  transition: transform 0.15s ease-out;
+  /* Smooth movement */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Centers text inside */
+
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+/* Prevent scrolling when checkout is open */
+body.checkout-open {
+  overflow: hidden;
+}
+
+/* Tablet responsive spacing */
+@media (max-width: 1023px) {
+  .bento-item {
+    padding: 1.5rem;
+    /* Smaller spacing on medium screens */
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none), (pointer: coarse) {
+  #cursor {
+    display: none;
+  }
+}
+
+/* Accessibility: reduce animations if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .archive-img,
+  .bento-item,
+  #cursor {
+    transition: none;
+    /* Removes animations */
+  }
+}
